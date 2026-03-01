@@ -1,0 +1,16 @@
+User-agent: *
+
+# ✅ Solo se indexa el home (la raíz)
+Allow: /$
+
+# ✅ Permite assets necesarios para render/SEO del home
+Allow: /assets/
+Allow: /favicon.ico
+Allow: /apple-touch-icon.png
+Allow: /robots.txt
+Allow: /sitemap.xml
+
+# 🚫 Bloquea TODO lo demás (subcarpetas, rutas, etc.)
+Disallow: /
+
+Sitemap: https://clientes.boxfox1.com/sitemap.xml
