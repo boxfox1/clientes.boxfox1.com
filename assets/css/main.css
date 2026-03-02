@@ -1,10 +1,7 @@
 /* =========================================================
    Boxfox1 — clientes.css
    Portal de clientes (corporativo + amable + elegante)
-   - Fondo forzado + overscroll + overflow-x
-   - Header sticky + panel móvil
-   - No WhatsApp FAB (solo redes en footer)
-   ========================================================= */
+========================================================= */
 
 :root {
   --fondo: #ffffff;
@@ -12,19 +9,20 @@
   --grisHero: rgba(15, 23, 42, 0.04);
 
   --texto: #0f172a;
-  --muted: rgba(15, 23, 42, 0.70);
+  --muted: rgba(15, 23, 42, 0.7);
 
   --linea: rgba(15, 23, 42, 0.12);
   --linea2: rgba(15, 23, 42, 0.18);
 
   --azul: #1a78ff;
-  --azulSuave: rgba(26, 120, 255, 0.10);
+  --azulSuave: rgba(26, 120, 255, 0.1);
 
   --mando: #0b1220;
 
   --wrap: 1140px;
-  --sombra: 0 12px 28px rgba(2, 6, 23, 0.10);
+  --sombra: 0 12px 28px rgba(2, 6, 23, 0.1);
   --sombra2: 0 6px 14px rgba(2, 6, 23, 0.06);
+  --radius: 10px;
 }
 
 /* Fixes globales baseline */
@@ -34,13 +32,24 @@ body {
   color: var(--texto);
   margin: 0;
   padding: 0;
+}
+
+html {
   overscroll-behavior-y: none;
-  overflow-x: clip;
 }
 
 body {
-  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans",
-    "Helvetica Neue", sans-serif;
+  overflow-x: hidden; /* fallback */
+  overflow-x: clip;
+  font-family:
+    "Roboto",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Arial,
+    "Noto Sans",
+    "Helvetica Neue",
+    sans-serif;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -88,7 +97,7 @@ a {
 
 /* =========================
    Tira superior
-   ========================= */
+========================= */
 .tira {
   background: #070d18;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -144,13 +153,13 @@ a {
 
 /* =========================
    Cabecera / Nav
-   ========================= */
+========================= */
 .cabecera {
   position: sticky;
   top: 0;
   z-index: 50;
   background: var(--mando);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .cabecera__inner {
   display: flex;
@@ -238,9 +247,20 @@ a {
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* para que los buttons se vean como links */
+.panel__btn,
+.footer__btn {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
 /* =========================
    Tipografía
-   ========================= */
+========================= */
 .label {
   font-size: 12px;
   letter-spacing: 0.14em;
@@ -280,47 +300,20 @@ a {
 
 /* =========================
    Hero
-   ========================= */
+========================= */
 .hero {
   background: linear-gradient(180deg, var(--grisHero), rgba(15, 23, 42, 0));
-  border-bottom: 1px solid var(--linea2);
-  padding: 44px 0 26px;
+  border-bottom: 0;
+  padding-top: 56px; /* antes 44 */
+  padding-bottom: 36px;
+  margin-bottom: 64px;
 }
 .hero__inner {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 18px;
   align-items: start;
-}
-.kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 12px;
-  border: 1px solid var(--linea2);
-  background: #fff;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: rgba(15, 23, 42, 0.68);
-  font-size: 12px;
-  text-transform: uppercase;
-}
-.kicker__dot {
-  width: 8px;
-  height: 8px;
-  background: rgba(26, 120, 255, 0.95);
-}
-.hero__bullets {
-  margin-top: 12px;
-  display: grid;
-  gap: 8px;
-}
-.bullet {
-  border: 1px solid rgba(15, 23, 42, 0.10);
-  background: rgba(255, 255, 255, 0.72);
-  padding: 10px 12px;
-  font-weight: 700;
-  color: rgba(15, 23, 42, 0.78);
+  padding-bottom: 80px;
 }
 
 /* Botones */
@@ -333,7 +326,10 @@ a {
   border: 1px solid var(--linea2);
   font-weight: 800;
   font-size: 13px;
-  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    background 0.12s ease,
+    border-color 0.12s ease;
   user-select: none;
 }
 .btn:active {
@@ -356,12 +352,16 @@ a {
   border-color: rgba(26, 120, 255, 0.2);
 }
 
-/* Card Acceso (protagonista) */
+/* Card Acceso */
 .heroCard {
-  border: 1px solid rgba(15, 23, 42, 0.20);
+  border: 1px solid rgba(15, 23, 42, 0.2);
   background: #fff;
   padding: 16px;
   box-shadow: var(--sombra);
+  transform: translateY(6px);
+  position: relative;
+  isolation: isolate;
+  padding: 20px; /* antes 16 */
 }
 .heroCard__top {
   display: flex;
@@ -374,6 +374,17 @@ a {
   font-weight: 900;
   letter-spacing: -0.01em;
 }
+.heroCard::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid rgba(26, 120, 255, 0.28);
+  pointer-events: none;
+  z-index: -1;
+}
+.hero__inner {
+  align-items: stretch;
+}
 .pill {
   padding: 6px 10px;
   font-weight: 900;
@@ -381,24 +392,15 @@ a {
   border: 1px solid rgba(26, 120, 255, 0.18);
   background: rgba(26, 120, 255, 0.08);
 }
-.accessGrid {
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
 .divider {
   margin: 14px 0;
   height: 1px;
-  background: rgba(15, 23, 42, 0.10);
+  background: rgba(15, 23, 42, 0.1);
 }
 .accessBox {
   border: 1px solid rgba(15, 23, 42, 0.12);
   background: rgba(15, 23, 42, 0.02);
   padding: 12px;
-}
-.accessBox + .accessBox {
-  margin-top: 10px;
 }
 .accessBox__k {
   font-size: 12px;
@@ -413,7 +415,6 @@ a {
   font-weight: 600;
   font-size: 13px;
 }
-
 .form {
   margin-top: 10px;
   display: grid;
@@ -422,13 +423,6 @@ a {
 .field {
   display: grid;
   gap: 6px;
-}
-.field span {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(15, 23, 42, 0.62);
 }
 .field input {
   width: 100%;
@@ -439,19 +433,13 @@ a {
   font-size: 15px;
   padding: 10px 12px;
   outline: none;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .field input:focus {
   border-color: var(--azul);
   box-shadow: 0 0 0 3px rgba(26, 120, 255, 0.12);
-}
-.help {
-  margin-top: 2px;
-  font-size: 12px;
-  color: rgba(15, 23, 42, 0.55);
-}
-.actions {
-  margin-top: 10px;
 }
 
 .microcta {
@@ -469,22 +457,31 @@ a {
   text-decoration: underline;
 }
 
-/* Banda humana (foto) */
+/* Banda humana */
 .humanBand {
-  margin-top: 18px;
   border: 1px solid rgba(15, 23, 42, 0.12);
-  background: rgba(255, 255, 255, 0.70);
+  padding: 0; /* ← clave */
+  gap: 0; /* ← clave */
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 14px;
-  padding: 12px;
+  grid-template-columns: 1.2fr 0.8fr;
+  overflow: hidden; /* ← para que quede dentro del marco */
+  margin-top: 52px;
+}
+.humanBand__media {
+  margin: 0;
 }
 .humanBand__media img {
+  display: block;
   width: 100%;
-  height: 160px;
+  height: 250px;
   object-fit: cover;
-  border: 1px solid rgba(15, 23, 42, 0.10);
-  filter: saturate(0.92);
+  border: 0; /* elimina línea interna */
+}
+.humanBand__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 .humanBand__k {
   font-size: 12px;
@@ -501,21 +498,30 @@ a {
 
 /* =========================
    Secciones
-   ========================= */
+========================= */
 .seccion {
   position: relative;
-  padding: 54px 0;
+  padding: 72px 0 48px; /* antes 72px 0 */
   background: #fff;
   border-top: 1px solid var(--linea2);
 }
+
 .seccion--banda {
   background: var(--grisBanda);
 }
+
 .seccion__head {
   margin-bottom: 18px;
   max-width: 78ch;
   padding-left: 14px;
   border-left: 4px solid var(--azul);
+}
+
+#ecosistema {
+  margin-top: 64px;
+  margin-bottom: 0;
+  padding-bottom: 56px; /* antes 44 */
+  border-top: 0;       /* quita la línea arriba si la odias */
 }
 
 .cards {
@@ -539,52 +545,13 @@ a {
 
 /* =========================
    Footer enterprise
-   ========================= */
+========================= */
 .footerWrap {
   background: #0b1220;
   color: #fff;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 28px 0;
-}
-
-.trustBand {
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 14px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-.trustBand__k {
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.78);
-}
-.trustBand__v {
-  color: rgba(255, 255, 255, 0.86);
-  font-weight: 650;
-  margin-top: 4px;
-}
-.trustBand__right {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-.tag {
-  display: inline-flex;
-  padding: 6px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.04);
-  font-weight: 900;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.80);
+  margin-top: 40px;
 }
 
 .footer {
@@ -595,11 +562,7 @@ a {
   grid-template-columns: 1.25fr repeat(4, 1fr);
   gap: 14px;
   padding: 12px 0 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-}
-.footer__logo {
-  height: 34px;
-  width: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .footer__desc {
   margin: 10px 0 0;
@@ -610,6 +573,7 @@ a {
   color: rgba(255, 255, 255, 0.82);
   font-weight: 600;
 }
+
 .footer__h {
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -618,17 +582,21 @@ a {
   color: rgba(255, 255, 255, 0.78);
   padding-bottom: 10px;
   margin-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .footer__a {
   display: block;
   padding: 8px 0;
-  color: rgba(255, 255, 255, 0.90);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 650;
+  background: transparent;
+  border: 0;
 }
 .footer__a:hover {
   text-decoration: underline;
 }
+
 .footer__a--inline {
   display: inline;
   padding: 0;
@@ -646,13 +614,14 @@ a {
   justify-content: space-between;
   gap: 12px;
   padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .footer__legal {
   color: rgba(255, 255, 255, 0.75);
   font-size: 13px;
   font-weight: 600;
 }
+
 .footer__icons {
   display: flex;
   gap: 10px;
@@ -665,7 +634,9 @@ a {
   place-items: center;
   border: none;
   background: transparent;
-  transition: opacity 0.15s ease, transform 0.12s ease;
+  transition:
+    opacity 0.15s ease,
+    transform 0.12s ease;
 }
 .iconlink:hover {
   opacity: 0.75;
@@ -679,8 +650,8 @@ a {
 }
 
 /* =========================
-   Modal
-   ========================= */
+   Modal (blanco limpio)
+========================= */
 .modal {
   position: fixed;
   inset: 0;
@@ -710,7 +681,7 @@ a {
   justify-content: space-between;
   gap: 12px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
 }
 .modal__kicker {
   display: inline-flex;
@@ -725,6 +696,11 @@ a {
   font-size: 12px;
   text-transform: uppercase;
 }
+.kicker__dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(26, 120, 255, 0.95);
+}
 .modal__x {
   width: 44px;
   height: 44px;
@@ -736,7 +712,7 @@ a {
 }
 .modal__x:hover {
   background: rgba(26, 120, 255, 0.06);
-  border-color: rgba(26, 120, 255, 0.20);
+  border-color: rgba(26, 120, 255, 0.2);
 }
 .modal__actions {
   margin-top: 14px;
@@ -744,6 +720,7 @@ a {
   gap: 10px;
   flex-wrap: wrap;
 }
+
 body.is-modal-open {
   overflow: hidden;
 }
@@ -756,19 +733,11 @@ body.is-modal-open {
   .footer__grid {
     grid-template-columns: 1fr;
   }
-  .trustBand {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .trustBand__right {
-    justify-content: flex-start;
-  }
   .footer__bottom {
     flex-direction: column;
     align-items: flex-start;
   }
 }
-
 @media (max-width: 860px) {
   .hero__inner {
     grid-template-columns: 1fr;
@@ -785,9 +754,6 @@ body.is-modal-open {
   .marca__tag {
     display: none;
   }
-  .accessGrid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* Reduce motion */
@@ -797,89 +763,7 @@ body.is-modal-open {
     transition: none !important;
   }
 }
-/* =========================
-   ESPACIO ENTRE SECCIONES
-========================= */
-
-/* bloque principal (hero) */
-.hero,
-.portalHero,
-.clientesHero{
-  margin-bottom: 64px;
-}
-
-/* imagen + relación de servicio */
-.relacion,
-.relacionServicio,
-.heroRelacion{
-  margin-bottom: 64px;
-}
-
-/* ecosistema */
-#ecosistema,
-.ecosistema{
-  margin-top: 64px;
-  margin-bottom: 72px;
-}
-/* =========================
-   IMAGEN RELACIÓN DE SERVICIO
-========================= */
-
-.relacion img,
-.heroRelacion img,
-.relacionServicio img{
-  width: 100%;
-  max-width: 480px;     /* antes parece ~300 */
-  height: 140px;        /* aumenta presencia */
-  object-fit: cover;
-  display: block;
-}
-.relacion{
-  display: grid;
-  grid-template-columns: 48% 52%;
-  align-items: center;
-  gap: 28px;
-}
-/* Aire vertical real entre bloques */
-.hero__inner {
-  padding-bottom: 26px;
-}
-
-.humanBand {
-  margin-top: 34px;   /* antes 18px */
-}
-
-#ecosistema.seccion {
-  padding-top: 72px;  /* antes 54px */
-  padding-bottom: 72px;
-}
-
-/* si quieres más aire antes del footer */
 .footerWrap {
-  margin-top: 0;      /* mantenlo pegado a la sección */
-}
-.humanBand {
-  grid-template-columns: 1.2fr 0.8fr; /* imagen con más peso */
-  gap: 18px;
-  padding: 14px;
-}
-
-.humanBand__media img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border: 1px solid rgba(15, 23, 42, 0.10);
-  filter: saturate(0.96);
-}
-.humanBand__text{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-/* Línea extra en cards del ecosistema */
-.p--mini{
-  margin-top: 8px;
-  font-size: 13px;
-  color: rgba(15, 23, 42, 0.62);
-  line-height: 1.45;
+  margin-top: 0;       /* que pegue con el respiro del ecosistema */
+  padding: 28px 0;
 }

@@ -113,10 +113,20 @@
           <a class="panel__link" href="#acceso">Acceso</a>
           <a class="panel__link" href="#ecosistema">Ecosistema</a>
           <a class="panel__link" href="#legal">Legal</a>
-          <a class="panel__link" href="#" data-open-privacy
-            >Aviso de privacidad</a
+
+          <button
+            class="panel__link panel__btn"
+            type="button"
+            data-open-privacy
           >
-          <a class="panel__link" href="#" data-open-terms>Términos de uso</a>
+            Aviso de privacidad
+          </button>
+          <button class="panel__link panel__btn" type="button" data-open-terms>
+            Términos de uso
+          </button>
+          <button class="panel__link panel__btn" type="button" data-open-legal>
+            Comunicación legal
+          </button>
         </div>
       </div>
     </header>
@@ -125,19 +135,26 @@
       <!-- HERO -->
       <section class="hero" aria-label="Entrada principal">
         <div class="wrap hero__inner">
-          <!-- Izquierda: mensaje -->
           <div class="hero__left">
             <h1 class="h1">Estamos para servirle.</h1>
-
+              <div class="kicker">
+    PORTAL EXCLUSIVO PARA CLIENTES
+</div>
             <p class="lead">
-              Este portal es exclusivo para clientes Boxfox1. Aquí encontrará su
-              evidencia y documentación por cuenta: <strong>eCards</strong>,
-              <strong>DC-3</strong>, registros, constancias y fechas de
-              seguimiento.
+
+              Aquí encontrará su
+              evidencia y documentación por cuenta: <br/>
+              <ul>
+                <li><strong>eCards</strong></li>
+              
+              <li><strong>DC-3</strong></li>
+              <li>Registros</li>
+              <li>Constancias/certificados</li>
+              <li>Seguimiento</li>
+              </ul>
             </p>
           </div>
 
-          <!-- Derecha: Acceso (protagonista) -->
           <aside class="heroCard" id="acceso" aria-label="Acceso al portal">
             <div class="heroCard__top">
               <div class="heroCard__title">Acceso al portal</div>
@@ -145,8 +162,6 @@
             </div>
 
             <p class="p">
-              Si ya cuenta con acceso, ingrese con el enlace de su cuenta.
-              <br />
               Si es cliente y aún no tiene usuario, solicita su ingreso en
               <strong>info@boxfox1.com</strong>
             </p>
@@ -158,11 +173,7 @@
               <div class="accessBox__v">Accede a tu carpeta de cliente</div>
 
               <!-- UI: no autentica (portal estático) -->
-              <form
-                class="form"
-                aria-label="Referencia visual de ingreso"
-                onsubmit="return false;"
-              >
+              <form class="form" onsubmit="return false;">
                 <label class="field">
                   <input
                     name="correo"
@@ -179,10 +190,9 @@
           </aside>
         </div>
 
-        <!-- Banda humana (foto) -->
+        <!-- Banda humana -->
         <div class="wrap humanBand" aria-label="Boxfox1 humano">
           <div class="humanBand__media" aria-hidden="true">
-            <!-- Reemplaza por tu imagen real (recomendado). -->
             <img
               src="/assets/img/clientes.jpg"
               alt=""
@@ -201,7 +211,7 @@
         </div>
       </section>
 
-      <!-- Ecosistema (links útiles, no ventas) -->
+      <!-- Ecosistema -->
       <section
         id="ecosistema"
         class="seccion seccion--banda"
@@ -215,8 +225,11 @@
 
           <div class="cards">
             <article class="card">
-              <h3 class="h3">Reporte de servicios</h3>
-              <p class="p">Consulta de reportes y referencia operativa.</p>
+              <h3 class="h3">Reporte de incidentes laborales</h3>
+              <p class="p">
+                Cifras de referencia para dimensionar riesgo, priorizar
+                controles y sostener evidencia.
+              </p>
               <a
                 class="microcta"
                 href="https://servicios.boxfox1.com/stps/reporte-de-incidentes.html"
@@ -228,11 +241,14 @@
             </article>
 
             <article class="card">
-              <h3 class="h3">Software / Web</h3>
-              <p class="p">Herramientas y servicios web del grupo.</p>
+              <h3 class="h3">Lista de cursos para la industria</h3>
+              <p class="p">
+                Brigadas multifuncionales, normatividad mexicana, incendios
+                entre otros.
+              </p>
               <a
                 class="microcta"
-                href="https://web.boxfox1.com/"
+                href="https://servicios.boxfox1.com/stps/cursos-para-la-industria.html"
                 target="_blank"
                 rel="noopener"
               >
@@ -241,8 +257,11 @@
             </article>
 
             <article class="card">
-              <h3 class="h3">Instituto: Hospitales y clínicas</h3>
-              <p class="p">Programas y capacitación por sector salud.</p>
+              <h3 class="h3">Capacitación para Escuelas & Hospitales</h3>
+              <p class="p">
+                Prevención, evidencia documental y preparación para revisiones
+                de autoridad.
+              </p>
               <a
                 class="microcta"
                 href="https://instituto.boxfox1.com/"
@@ -254,11 +273,14 @@
             </article>
 
             <article class="card">
-              <h3 class="h3">Boxfox1 (sitio principal)</h3>
-              <p class="p">Contenido y referencias institucionales.</p>
+              <h3 class="h3">Tecnología con propósito</h3>
+              <p class="p">
+                En Boxfox1 creemos que el conocimiento técnico también puede
+                apoyar a la sociedad.
+              </p>
               <a
                 class="microcta"
-                href="https://www.boxfox1.com/"
+                href="https://web.boxfox1.com/impacto-social#impactosocial"
                 target="_blank"
                 rel="noopener"
               >
@@ -267,11 +289,14 @@
             </article>
 
             <article class="card">
-              <h3 class="h3">Maquinados</h3>
-              <p class="p">División técnica (si aplica).</p>
+              <h3 class="h3">Porque lo técnico puede ser bello también</h3>
+              <p class="p">
+                Breitling ha sido anunciada como Socio Oficial de Relojes de
+                Aston Martin.
+              </p>
               <a
                 class="microcta"
-                href="https://maquinados.boxfox1.com/"
+                href="https://www.boxfox1.com/2026/02/breitling-named-official-watch-partner.html"
                 target="_blank"
                 rel="noopener"
               >
@@ -280,8 +305,8 @@
             </article>
 
             <article class="card">
-              <h3 class="h3">Imprenta</h3>
-              <p class="p">División de impresión/producción (si aplica).</p>
+              <h3 class="h3">Impresión con sentido</h3>
+              <p class="p">Señalética, etiquetas, identificación visual y materiales internos listos para uso diario.</p>
               <a
                 class="microcta"
                 href="https://imprenta.boxfox1.com/"
@@ -295,22 +320,20 @@
         </div>
       </section>
 
-      <!-- FOOTER tipo enterprise -->
+      <!-- FOOTER -->
       <section class="footerWrap" aria-label="Footer institucional">
         <div class="wrap">
-          <!-- Footer columnas -->
           <footer class="footer" id="legal" aria-label="Pie de página">
             <div class="footer__grid">
               <div class="footer__col">
-                <div class="footer__brand"></div>
                 <p class="footer__desc">
-                  Boxfox1 — plataforma operativa para soporte, evidencia y
-                  continuidad del servicio.
+                  Plataforma operativa para soporte, evidencia y seguimiento de
+                  clientes corporativos en México.
                 </p>
                 <p class="footer__meta">
                   Soporte:
                   <a
-                    class="footer__a"
+                    class="footer__a footer__a--inline"
                     href="mailto:info@boxfox1.com?subject=Portal%20Clientes%20Boxfox1%20|%20Soporte&body=Origen%3A%20clientes.boxfox1.com%0A%0AHola%20Boxfox1%2C%20necesito%20soporte%20en%20portal%20de%20clientes.%0A%0AEmpresa%3A%0AProblema%3A%0AURL%20(si%20aplica)%3A%0A%0AGracias."
                     >info@boxfox1.com</a
                   >
@@ -324,87 +347,121 @@
                   href="https://servicios.boxfox1.com/"
                   target="_blank"
                   rel="noopener"
-                  >Servicios</a
+                  >División industrial</a
                 >
                 <a
                   class="footer__a"
                   href="https://instituto.boxfox1.com/"
                   target="_blank"
                   rel="noopener"
-                  >Instituto</a
+                  >División comercial</a
                 >
                 <a
                   class="footer__a"
-                  href="https://hub.boxfox1.com/"
+                  href="https://maquinados.boxfox1.com/"
                   target="_blank"
                   rel="noopener"
-                  >Hub</a
-                >
-                <a
-                  class="footer__a"
-                  href="https://blog.boxfox1.com/"
-                  target="_blank"
-                  rel="noopener"
-                  >Blog</a
-                >
-              </div>
-
-              <div class="footer__col">
-                <div class="footer__h">Accesos rápidos</div>
-                <a class="footer__a" href="#acceso">Ingreso / Registro</a>
-                <a class="footer__a" href="#ecosistema">Sitios útiles</a>
-                <a
-                  class="footer__a"
-                  href="https://www.boxfox1.com/"
-                  target="_blank"
-                  rel="noopener"
-                  >www.boxfox1.com</a
+                  >División de maquinados</a
                 >
                 <a
                   class="footer__a"
                   href="https://web.boxfox1.com/"
                   target="_blank"
                   rel="noopener"
-                  >Software / Web</a
+                  >División de software</a
                 >
               </div>
 
               <div class="footer__col">
-                <div class="footer__h">Legal</div>
-                <a class="footer__a" href="#" data-open-privacy
-                  >Aviso de privacidad</a
-                >
-                <a class="footer__a" href="#" data-open-terms
-                  >Términos de uso</a
-                >
-                <a class="footer__a" href="#" data-open-legal
-                  >Comunicación legal</a
-                >
-              </div>
-
-              <div class="footer__col">
-                <div class="footer__h">Sitio</div>
+                <div class="footer__h">Ecosistema</div>
                 <a
                   class="footer__a"
-                  href="https://www.linkedin.com/company/boxfox1"
+                  href="https://corporativo.boxfox1.com/"
                   target="_blank"
                   rel="noopener"
-                  >LinkedIn</a
+                  >Corporativo</a
+                >
+                <a
+                  class="footer__a"
+                  href="https://www.boxfox1.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >Technical beauty</a
                 >
                 <a
                   class="footer__a"
                   href="https://blog.boxfox1.com/"
                   target="_blank"
                   rel="noopener"
-                  >Actualizaciones</a
+                  >Blog de noticias</a
                 >
-                <span class="footer__note"
-                  >Indexable: / (home). Carpetas privadas: no index.</span
+                <a
+                  class="footer__a"
+                  href="https://hub.boxfox1.com/"
+                  target="_blank"
+                  rel="noopener"
+                  >Hub de recursos
+                </a>
+              </div>
+
+              <div class="footer__col">
+                <div class="footer__h">Legal</div>
+                <button
+                  class="footer__a footer__btn"
+                  type="button"
+                  data-open-privacy
+                >
+                  Aviso de privacidad
+                </button>
+                <button
+                  class="footer__a footer__btn"
+                  type="button"
+                  data-open-terms
+                >
+                  Términos de uso
+                </button>
+                <button
+                  class="footer__a footer__btn"
+                  type="button"
+                  data-open-legal
+                >
+                  Comunicación legal
+                </button>
+              </div>
+
+              <div class="footer__col">
+                <div class="footer__h">Redes sociales</div>
+                <a
+                  class="footer__a"
+                  href="https://www.linkedin.com/company/boxfox1industry"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn</a
+                >
+                <a
+                  class="footer__a"
+                  href="https://www.youtube.com/@Boxfox1industry"
+                  target="_blank"
+                  rel="noopener"
+                  >Youtube</a
+                >
+                <a
+                  class="footer__a"
+                  href="https://open.spotify.com/show/6O8W2euH2owYs06F3bGgIo"
+                  target="_blank"
+                  rel="noopener"
+                  >Spotify</a
+                >
+                <a
+                  class="footer__a"
+                  href="https://www.facebook.com/boxfox1industria/"
+                  target="_blank"
+                  rel="noopener"
+                  >Facebook</a
                 >
               </div>
             </div>
 
-            <!-- Línea inferior -->
             <div class="footer__bottom">
               <div class="footer__legal">
                 <a
@@ -415,53 +472,19 @@
                 >
                   Corporativo Boxfox1
                 </a>
-                © 2026 ·
-                <a
-                  class="footer__a footer__a--inline"
-                  href="#"
-                  data-open-privacy
-                  >Privacidad</a
-                >
-                ·
-                <a class="footer__a footer__a--inline" href="#" data-open-terms
-                  >Términos</a
-                >
+                © 2026
               </div>
 
-              <div class="footer__icons" aria-label="Redes sociales Boxfox1">
-                <a
-                  class="iconlink"
-                  href="https://blog.boxfox1.com/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="Blog Boxfox1"
-                >
-                  <img
-                    src="/assets/img/icons/blog.svg"
-                    alt=""
-                    aria-hidden="true"
-                  />
-                </a>
-                <a
-                  class="iconlink"
-                  href="https://www.linkedin.com/company/boxfox1"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="LinkedIn"
-                >
-                  <img
-                    src="/assets/img/icons/linkedin.svg"
-                    alt=""
-                    aria-hidden="true"
-                  />
-                </a>
-              </div>
+              <div
+                class="footer__icons"
+                aria-label="Redes sociales Boxfox1"
+              ></div>
             </div>
           </footer>
         </div>
       </section>
 
-      <!-- MODALES (Privacidad / Términos / Comunicación legal) -->
+      <!-- MODALES -->
       <div
         class="modal"
         id="privacyModal"

@@ -2,8 +2,8 @@
    Boxfox1 — clientes.js
    - Drawer móvil (navbtn + panel)
    - Modales: privacidad / términos / comunicación legal
-   - Demo: botón "Continuar" muestra aviso (no auth real)
-   ========================================================= */
+   - Demo: botón "Ingresar" (no auth real)
+========================================================= */
 
 (() => {
   // Drawer
@@ -15,6 +15,16 @@
       const open = panel.classList.toggle("is-open");
       navBtn.setAttribute("aria-expanded", open ? "true" : "false");
       panel.setAttribute("aria-hidden", open ? "false" : "true");
+    });
+
+    // Cierra panel al hacer click en links internos (mejora UX)
+    panel.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (a) {
+        panel.classList.remove("is-open");
+        navBtn.setAttribute("aria-expanded", "false");
+        panel.setAttribute("aria-hidden", "true");
+      }
     });
   }
 
@@ -31,6 +41,10 @@
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     body.classList.add("is-modal-open");
+
+    // focus al botón cerrar
+    const closeBtn = modal.querySelector("[data-modal-close]");
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeModal(modal) {
@@ -47,29 +61,29 @@
   // Openers
   document.querySelectorAll("[data-open-privacy]").forEach((el) => {
     el.addEventListener("click", (e) => {
-      e.preventDefault();
+      e.preventDefault?.();
       openModal(modals.privacy);
     });
   });
 
   document.querySelectorAll("[data-open-terms]").forEach((el) => {
     el.addEventListener("click", (e) => {
-      e.preventDefault();
+      e.preventDefault?.();
       openModal(modals.terms);
     });
   });
 
   document.querySelectorAll("[data-open-legal]").forEach((el) => {
     el.addEventListener("click", (e) => {
-      e.preventDefault();
+      e.preventDefault?.();
       openModal(modals.legal);
     });
   });
 
-  // Closers
+  // Closers (overlay + botones)
   document.querySelectorAll("[data-modal-close]").forEach((el) => {
     el.addEventListener("click", (e) => {
-      e.preventDefault();
+      e.preventDefault?.();
       closeAnyOpenModal();
     });
   });
